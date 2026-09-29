@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.pyc
+
+# Private key material — never commit; regenerate with:
+#   python -c "from watermark import keys; keys.generate_keys()"
+watermark/keys/
+
+# Scratch/test artifacts
+samples/tmp*
+samples/_*
