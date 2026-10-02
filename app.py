@@ -24,11 +24,11 @@ st.markdown(
     <style>
     /* Deep Rich Tech Background with Subtle Glow Effect */
     .stApp {
-        background: radial-gradient(circle at 10% 20%, rgba(30, 41, 59, 1) 0%, rgba(15, 23, 42, 1) 90%),
-                    radial-gradient(circle at 90% 80%, rgba(37, 99, 235, 0.15) 0%, transparent 50%);
-        color: #f8fafc;
-    }
-
+    background-image: linear-gradient(to right, #ff8177 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
+    background-size: cover;
+    background-attachment: fixed;
+    color: #ffffff;
+}
     /* Force high-contrast text */
     .stApp p, .stApp h1, .stApp h2, .stApp h3, .stApp label, .stApp span {
         color: #f1f5f9 !important;
@@ -36,7 +36,7 @@ st.markdown(
 
     /* Glassmorphic Container Cards for Uploader & Sections */
     div[data-testid="stVerticalBlock"] > div:has(div[data-testid="stFileUploader"]) {
-        background: rgba(30, 41, 59, 0.6);
+        background: rgba(40, 10, 20, 0.45);;
         border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: 16px;
         padding: 1.5rem;
@@ -46,7 +46,7 @@ st.markdown(
 
     /* File Uploader Customization */
     div[data-testid="stFileUploader"] {
-        background-color: rgba(15, 23, 42, 0.5);
+        background-color: rgba(0, 0, 0, 0.25);
         border: 2px dashed rgba(56, 189, 248, 0.4);
         border-radius: 12px;
         padding: 1rem;
