@@ -36,55 +36,62 @@ st.markdown(
 
     /* Glassmorphic Container Cards for Uploader & Sections */
     div[data-testid="stVerticalBlock"] > div:has(div[data-testid="stFileUploader"]) {
-    background: rgba(120, 30, 60, 0.35); /* Rich translucent berry/plum tone */
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
-    padding: 1.5rem;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(12px);
+    /* Pure dark frosted overlay gives high contrast against bright red/pink */
+    background: rgba(18, 18, 24, 0.65) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    border-radius: 16px !important;
+    padding: 1.5rem !important;
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4) !important;
+    backdrop-filter: blur(16px) !important;
 }
 
     /* File Uploader Customization */
-    /* File Uploader Customization */
     div[data-testid="stFileUploader"] {
-    background-color: rgba(80, 20, 45, 0.35);
-    border: 2px dashed rgba(255, 255, 255, 0.25);
-    border-radius: 12px;
-    padding: 1rem;
-    transition: all 0.3s ease;
+    /* Slightly lighter dark box inside the container card */
+    background-color: rgba(30, 30, 40, 0.7) !important;
+    border: 2px dashed rgba(255, 129, 119, 0.6) !important; /* Coral pink border matching gradient */
+    border-radius: 12px !important;
+    padding: 1rem !important;
+    transition: all 0.3s ease !important;
 }
 
     div[data-testid="stFileUploader"]:hover {
-    border-color: #ff8177;
-    background-color: rgba(100, 25, 55, 0.55);
+    border-color: #ff8177 !important;
+    background-color: rgba(45, 45, 60, 0.85) !important;
+    box-shadow: 0 0 15px rgba(255, 129, 119, 0.3) !important;
 }
     /* Tabs Styling */
     button[data-baseweb="tab"] {
         color: #94a3b8 !important;
         font-weight: 600;
     }
-    button[data-baseweb="tab"][aria-selected="true"] {
-        color: #38bdf8 !important;
-        border-bottom-color: #38bdf8 !important;
-    }
+    button[data-baseweb="tab"] {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-weight: 600;
+}
 
+    button[data-baseweb="tab"][aria-selected="true"] {
+    color: #ffffff !important;
+    border-bottom-color: #ff8177 !important; /* Coral pink active indicator line */
+}
+    /* Modern Gradient Primary Action Button */
     /* Modern Gradient Primary Action Button */
     .stButton > button {
-        background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%);
-        color: #ffffff !important;
-        border: none;
-        border-radius: 10px;
-        font-weight: 600;
-        padding: 0.6rem 1.2rem;
-        box-shadow: 0 4px 20px rgba(56, 189, 248, 0.3);
-        transition: all 0.3s ease;
-    }
+    background: linear-gradient(135deg, #ff8177 0%, #cf556c 100%);
+    color: #ffffff !important;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    padding: 0.6rem 1.2rem;
+    box-shadow: 0 4px 20px rgba(255, 129, 119, 0.4);
+    transition: all 0.3s ease;
+}
 
     .stButton > button:hover {
-        background: linear-gradient(135deg, #0ea5e9 0%, #1d4ed8 100%);
-        box-shadow: 0 6px 24px rgba(56, 189, 248, 0.5);
-        transform: translateY(-1px);
-    }
+    background: linear-gradient(135deg, #ff8c7f 0%, #b12a5b 100%);
+    box-shadow: 0 6px 24px rgba(255, 129, 119, 0.6);
+    transform: translateY(-1px);
+}
     </style>
     """,
     unsafe_allow_html=True,
