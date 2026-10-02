@@ -36,28 +36,28 @@ st.markdown(
 
     /* Glassmorphic Container Cards for Uploader & Sections */
     div[data-testid="stVerticalBlock"] > div:has(div[data-testid="stFileUploader"]) {
-        background: rgba(40, 10, 20, 0.45);;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 16px;
-        padding: 1.5rem;
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-        backdrop-filter: blur(12px);
-    }
+    background: rgba(120, 30, 60, 0.35); /* Rich translucent berry/plum tone */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(12px);
+}
 
     /* File Uploader Customization */
+    /* File Uploader Customization */
     div[data-testid="stFileUploader"] {
-        background-color: rgba(0, 0, 0, 0.25);
-        border: 2px dashed rgba(56, 189, 248, 0.4);
-        border-radius: 12px;
-        padding: 1rem;
-        transition: all 0.3s ease;
-    }
+    background-color: rgba(80, 20, 45, 0.35);
+    border: 2px dashed rgba(255, 255, 255, 0.25);
+    border-radius: 12px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
 
     div[data-testid="stFileUploader"]:hover {
-        border-color: #38bdf8;
-        background-color: rgba(15, 23, 42, 0.8);
-    }
-
+    border-color: #ff8177;
+    background-color: rgba(100, 25, 55, 0.55);
+}
     /* Tabs Styling */
     button[data-baseweb="tab"] {
         color: #94a3b8 !important;
