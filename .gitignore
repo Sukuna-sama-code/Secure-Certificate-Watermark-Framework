@@ -5,6 +5,9 @@ __pycache__/
 # Private key material — never commit; regenerate with:
 #   python -c "from watermark import keys; keys.generate_keys()"
 watermark/keys/
+*.key
+*.pem
+.streamlit/secrets.toml
 
 # Scratch/test artifacts
 samples/tmp*
