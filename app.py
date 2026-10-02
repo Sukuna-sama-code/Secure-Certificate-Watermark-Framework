@@ -16,148 +16,68 @@ st.set_page_config(
 )
 
 # ---------------------------------------------------------------- styling
-st.markdown(
-    """
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Instrument+Sans:wght@400;500;600&display=swap');
-
-:root {
-  --ink: #0F3D3E;
-  --ink-soft: #2C5859;
-  --brass: #B08D3C;
-  --paper: #F3F5F4;
-  --line: #D5DBD9;
-  --ok: #1E7A4C;
-  --warn: #B26A00;
-  --bad: #B3261E;
-}
-
-html, body, [class*="css"], .stApp {
-  font-family: 'Instrument Sans', system-ui, sans-serif;
-}
-.stApp { background: var(--paper); color: #17302F; }
-#MainMenu, footer, header [data-testid="stToolbar"] { visibility: hidden; }
-.block-container { padding-top: 1.5rem; max-width: 760px; }
-
-/* hero */
-.hero {
-  background: var(--ink);
-  color: #F3F5F4;
-  border-radius: 14px;
-  padding: 2.2rem 2rem 2rem 2rem;
-  margin-bottom: 1.2rem;
-  border-bottom: 5px solid var(--brass);
-}
-.hero h1 {
-  font-family: 'Fraunces', Georgia, serif;
-  font-weight: 700;
-  font-size: 2.15rem;
-  line-height: 1.15;
-  margin: 0 0 .6rem 0;
-  color: #F3F5F4;
-  letter-spacing: -0.01em;
-}
-.hero p {
-  margin: 0;
-  max-width: 56ch;
-  color: #C9D8D6;
-  font-size: 1.02rem;
-  line-height: 1.55;
-}
-
-/* verdict legend */
-.legend { display: flex; gap: .6rem; flex-wrap: wrap; margin-bottom: 1.4rem; }
-.legend div {
-  flex: 1 1 200px;
-  background: #fff;
-  border: 1px solid var(--line);
-  border-left-width: 4px;
-  border-radius: 6px;
-  padding: .65rem .8rem;
-  font-size: .9rem;
-  line-height: 1.4;
-}
-.legend b { display: block; margin-bottom: .1rem; }
-.legend .l-ok { border-left-color: var(--ok); }
-.legend .l-warn { border-left-color: var(--warn); }
-.legend .l-bad { border-left-color: var(--bad); }
-
-/* tabs */
-.stTabs [data-baseweb="tab-list"] { gap: 1.6rem; border-bottom: 1px solid var(--line); }
-.stTabs [data-baseweb="tab"] { font-weight: 600; padding: .6rem 0; color: var(--ink-soft); }
-.stTabs [aria-selected="true"] { color: var(--ink); }
-.stTabs [data-baseweb="tab-highlight"] { background: var(--brass); height: 3px; }
-
-h2, h3 { font-family: 'Fraunces', Georgia, serif; color: var(--ink); }
-
-/* buttons */
-.stButton > button[kind="primary"], .stDownloadButton > button {
-  background: var(--ink);
-  color: #fff;
-  border: 0;
-  border-radius: 8px;
-  padding: .55rem 1.4rem;
-  font-weight: 600;
-}
-.stButton > button[kind="primary"]:hover, .stDownloadButton > button:hover {
-  background: var(--ink-soft);
-  color: #fff;
-}
-.stButton > button:focus-visible, .stDownloadButton > button:focus-visible {
-  outline: 3px solid var(--brass);
-  outline-offset: 2px;
-}
-
-/* uploader */
-[data-testid="stFileUploaderDropzone"] {
-  background: #fff;
-  border: 1.5px dashed #9FB0AD;
-  border-radius: 10px;
-}
-
-/* verdict stamp */
-.stamp-wrap { display: flex; align-items: center; gap: 1.2rem; margin: 1rem 0 .6rem 0; }
-.stamp {
-  width: 128px; height: 128px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center; text-align: center;
-  font-family: 'Fraunces', Georgia, serif; font-weight: 700;
-  font-size: 1.05rem; line-height: 1.1;
-  border: 4px double currentColor;
-  outline: 2px solid currentColor; outline-offset: 4px;
-  transform: rotate(-6deg);
-  background: #fff;
-  flex: 0 0 auto;
-}
-.stamp.ok { color: var(--ok); }
-.stamp.warn { color: var(--warn); }
-.stamp.bad { color: var(--bad); }
-.stamp-text { font-size: 1.02rem; line-height: 1.5; max-width: 40ch; }
-
-@media (max-width: 560px) {
-  .hero h1 { font-size: 1.7rem; }
-  .stamp-wrap { flex-direction: column; align-items: flex-start; }
-}
-</style>
-""",
-    unsafe_allow_html=True,
-)
+import streamlit as st
 
 st.markdown(
     """
-<div class="hero">
-  <h1>Secure Certificate Watermark Framework</h1>
-  <p>Issue certificates with an invisible, signed watermark, then check later
-  whether a certificate is genuine, edited, or fake.</p>
-</div>
-<div class="legend">
-  <div class="l-ok"><b>Authentic</b>Valid signature and the content matches.</div>
-  <div class="l-warn"><b>Tampered</b>Valid signature, but the content was changed.</div>
-  <div class="l-bad"><b>Forged</b>No valid watermark found.</div>
-</div>
-""",
+    <style>
+    /* Overall App Background & Font */
+    .stApp {
+        background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+        font-family: 'Inter', sans-serif;
+    }
+
+    /* Main Header Container */
+    div.block-container {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    /* Card/Container Styling */
+    div.stMarkdownContainer, div[data-testid="stVerticalBlock"] > div {
+        background-color: rgba(255, 255, 255, 0.85);
+        border-radius: 12px;
+        padding: 1.2rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+        border: 1px solid rgba(226, 232, 240, 0.8);
+        backdrop-filter: blur(10px);
+        margin-bottom: 1rem;
+    }
+
+    /* Buttons Styling */
+    .stButton > button {
+        background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 0.6rem 1.2rem;
+        font-weight: 600;
+        box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    .stButton > button:hover {
+        background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+        box-shadow: 0 6px 15px rgba(59, 130, 246, 0.4);
+        transform: translateY(-1px);
+    }
+
+    /* File Uploader Box Styling */
+    div[data-testid="stFileUploader"] {
+        background-color: #ffffff;
+        border: 2px dashed #cbd5e1;
+        border-radius: 12px;
+        padding: 1.5rem;
+        transition: border-color 0.2s ease;
+    }
+
+    div[data-testid="stFileUploader"]:hover {
+        border-color: #3b82f6;
+    }
+    </style>
+    """,
     unsafe_allow_html=True,
 )
-
 # ---------------------------------------------------------------- keys
 priv = keys.load_private_key()
 pub = keys.load_public_key()
