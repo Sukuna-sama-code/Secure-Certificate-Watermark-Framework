@@ -18,23 +18,47 @@ st.set_page_config(
 # ---------------------------------------------------------------- styling
 import streamlit as st
 
-import streamlit as st
 
 st.markdown(
     """
     <style>
-    /* Clean, high-contrast dark/professional theme background */
+    /* Deep Rich Tech Background with Subtle Glow Effect */
     .stApp {
-        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        background: radial-gradient(circle at 10% 20%, rgba(30, 41, 59, 1) 0%, rgba(15, 23, 42, 1) 90%),
+                    radial-gradient(circle at 90% 80%, rgba(37, 99, 235, 0.15) 0%, transparent 50%);
         color: #f8fafc;
     }
 
-    /* Force text contrast across standard text and headers */
+    /* Force high-contrast text */
     .stApp p, .stApp h1, .stApp h2, .stApp h3, .stApp label, .stApp span {
         color: #f1f5f9 !important;
     }
 
-    /* Tab styling for clean visibility */
+    /* Glassmorphic Container Cards for Uploader & Sections */
+    div[data-testid="stVerticalBlock"] > div:has(div[data-testid="stFileUploader"]) {
+        background: rgba(30, 41, 59, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        padding: 1.5rem;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        backdrop-filter: blur(12px);
+    }
+
+    /* File Uploader Customization */
+    div[data-testid="stFileUploader"] {
+        background-color: rgba(15, 23, 42, 0.5);
+        border: 2px dashed rgba(56, 189, 248, 0.4);
+        border-radius: 12px;
+        padding: 1rem;
+        transition: all 0.3s ease;
+    }
+
+    div[data-testid="stFileUploader"]:hover {
+        border-color: #38bdf8;
+        background-color: rgba(15, 23, 42, 0.8);
+    }
+
+    /* Tabs Styling */
     button[data-baseweb="tab"] {
         color: #94a3b8 !important;
         font-weight: 600;
@@ -44,28 +68,22 @@ st.markdown(
         border-bottom-color: #38bdf8 !important;
     }
 
-    /* File Uploader styling */
-    div[data-testid="stFileUploader"] {
-        background-color: #1e293b;
-        border: 2px dashed #475569;
-        border-radius: 10px;
-        padding: 1rem;
-    }
-
-    /* Primary Action Buttons */
+    /* Modern Gradient Primary Action Button */
     .stButton > button {
-        background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+        background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%);
         color: #ffffff !important;
         border: none;
-        border-radius: 8px;
+        border-radius: 10px;
         font-weight: 600;
-        padding: 0.5rem 1rem;
-        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        padding: 0.6rem 1.2rem;
+        box-shadow: 0 4px 20px rgba(56, 189, 248, 0.3);
+        transition: all 0.3s ease;
     }
 
     .stButton > button:hover {
-        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-        box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+        background: linear-gradient(135deg, #0ea5e9 0%, #1d4ed8 100%);
+        box-shadow: 0 6px 24px rgba(56, 189, 248, 0.5);
+        transform: translateY(-1px);
     }
     </style>
     """,
