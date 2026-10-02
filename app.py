@@ -18,61 +18,54 @@ st.set_page_config(
 # ---------------------------------------------------------------- styling
 import streamlit as st
 
+import streamlit as st
+
 st.markdown(
     """
     <style>
-    /* Overall App Background & Font */
+    /* Clean, high-contrast dark/professional theme background */
     .stApp {
-        background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
-        font-family: 'Inter', sans-serif;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        color: #f8fafc;
     }
 
-    /* Main Header Container */
-    div.block-container {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
+    /* Force text contrast across standard text and headers */
+    .stApp p, .stApp h1, .stApp h2, .stApp h3, .stApp label, .stApp span {
+        color: #f1f5f9 !important;
     }
 
-    /* Card/Container Styling */
-    div.stMarkdownContainer, div[data-testid="stVerticalBlock"] > div {
-        background-color: rgba(255, 255, 255, 0.85);
-        border-radius: 12px;
-        padding: 1.2rem;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-        border: 1px solid rgba(226, 232, 240, 0.8);
-        backdrop-filter: blur(10px);
-        margin-bottom: 1rem;
+    /* Tab styling for clean visibility */
+    button[data-baseweb="tab"] {
+        color: #94a3b8 !important;
+        font-weight: 600;
+    }
+    button[data-baseweb="tab"][aria-selected="true"] {
+        color: #38bdf8 !important;
+        border-bottom-color: #38bdf8 !important;
     }
 
-    /* Buttons Styling */
+    /* File Uploader styling */
+    div[data-testid="stFileUploader"] {
+        background-color: #1e293b;
+        border: 2px dashed #475569;
+        border-radius: 10px;
+        padding: 1rem;
+    }
+
+    /* Primary Action Buttons */
     .stButton > button {
-        background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-        color: white;
+        background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+        color: #ffffff !important;
         border: none;
         border-radius: 8px;
-        padding: 0.6rem 1.2rem;
         font-weight: 600;
-        box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
-        transition: all 0.3s ease;
+        padding: 0.5rem 1rem;
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
     }
 
     .stButton > button:hover {
-        background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
-        box-shadow: 0 6px 15px rgba(59, 130, 246, 0.4);
-        transform: translateY(-1px);
-    }
-
-    /* File Uploader Box Styling */
-    div[data-testid="stFileUploader"] {
-        background-color: #ffffff;
-        border: 2px dashed #cbd5e1;
-        border-radius: 12px;
-        padding: 1.5rem;
-        transition: border-color 0.2s ease;
-    }
-
-    div[data-testid="stFileUploader"]:hover {
-        border-color: #3b82f6;
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
     }
     </style>
     """,
