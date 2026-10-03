@@ -19,65 +19,81 @@ st.set_page_config(
 import streamlit as st
 
 
+import streamlit as st
+
 st.markdown("""
 <style>
-/* Near Moon Gradient Background */
+/* 1. Near Moon Gradient Background */
 .stApp {
     background-image: linear-gradient(135deg, #5ee7df 0%, #b490ca 100%);
     background-size: cover;
     background-attachment: fixed;
-    color: #1e293b;
 }
 
-/* Force high-contrast dark text for readability on light/bright gradients */
-.stApp p, .stApp h1, .stApp h2, .stApp h3, .stApp label, .stApp span {
-    color: #0f172a !important;
-}
-
-/* Glassmorphic Container Cards with crisp contrast */
+/* 2. Main Glass Card Container */
 div[data-testid="stVerticalBlock"] > div:has(div[data-testid="stFileUploader"]) {
-    background: rgba(255, 255, 255, 0.75) !important;
-    border: 1px solid rgba(255, 255, 255, 0.9) !important;
-    border-radius: 16px !important;
-    padding: 1.5rem !important;
-    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.15) !important;
-    backdrop-filter: blur(16px) !important;
+    background: rgba(255, 255, 255, 0.45) !important;
+    border: 1px solid rgba(255, 255, 255, 0.7) !important;
+    border-radius: 20px !important;
+    padding: 2rem !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08) !important;
+    backdrop-filter: blur(20px) !important;
 }
 
-/* File Uploader Dropzone */
+/* 3. High-Contrast Dark Text */
+.stApp p, .stApp h1, .stApp h2, .stApp h3, .stApp label, .stApp span {
+    color: #1e1b4b !important;
+    font-weight: 500;
+}
+
+/* 4. Fix Black Uploader Box -> Frosted Glass Box */
 div[data-testid="stFileUploader"] {
-    background-color: rgba(240, 249, 255, 0.8) !important;
-    border: 2px dashed rgba(94, 231, 223, 0.8) !important;
-    border-radius: 12px !important;
-    padding: 1rem !important;
+    background: rgba(255, 255, 255, 0.6) !important;
+    border: 2px dashed rgba(120, 80, 160, 0.35) !important;
+    border-radius: 14px !important;
+    padding: 1.2rem !important;
     transition: all 0.3s ease !important;
 }
 
 div[data-testid="stFileUploader"]:hover {
-    border-color: #b490ca !important;
-    background-color: rgba(255, 255, 255, 0.95) !important;
+    background: rgba(255, 255, 255, 0.85) !important;
+    border-color: #8b5cf6 !important;
 }
 
-/* Modern Gradient Primary Action Button */
+/* Target internal Streamlit uploader elements to strip dark default fills */
+div[data-testid="stFileUploader"] section {
+    background-color: transparent !important;
+}
+
+/* 5. Tabs Styling */
+button[data-baseweb="tab"] {
+    color: #475569 !important;
+    font-weight: 600 !important;
+}
+
+button[data-baseweb="tab"][aria-selected="true"] {
+    color: #6d28d9 !important;
+    border-bottom-color: #6d28d9 !important;
+}
+
+/* 6. Primary Action Button ("Embed watermark") */
 .stButton > button {
-    background: linear-gradient(135deg, #5ee7df 0%, #b490ca 100%);
+    background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%) !important;
     color: #ffffff !important;
-    border: none;
-    border-radius: 10px;
-    font-weight: 600;
-    padding: 0.6rem 1.2rem;
-    box-shadow: 0 4px 20px rgba(180, 144, 202, 0.4);
-    transition: all 0.3s ease;
+    font-weight: 600 !important;
+    border: none !important;
+    border-radius: 10px !important;
+    padding: 0.6rem 1.5rem !important;
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.3) !important;
+    transition: all 0.3s ease !important;
 }
 
 .stButton > button:hover {
-    background: linear-gradient(135deg, #4bc9c2 0%, #a27eb8 100%);
-    box-shadow: 0 6px 24px rgba(180, 144, 202, 0.6);
-    transform: translateY(-1px);
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(124, 58, 237, 0.45) !important;
 }
 </style>
-""", unsafe_allow_html=True
-)
+""", unsafe_allow_html=True)
 # ---------------------------------------------------------------- keys
 priv = keys.load_private_key()
 pub = keys.load_public_key()
