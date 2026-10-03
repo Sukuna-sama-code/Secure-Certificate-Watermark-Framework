@@ -19,86 +19,93 @@ st.set_page_config(
 import streamlit as st
 
 
+import streamlit as st
+
 st.markdown("""
 <style>
-/* 1. Near Moon Gradient Background */
+/* 1. Base Gradient Background (Near Moon) */
 .stApp {
-    background-image: linear-gradient(135deg, #5ee7df 0%, #b490ca 100%);
+    background-image: linear-gradient(135deg, #5ee7df 0%, #b490ca 100%) !important;
     background-size: cover;
     background-attachment: fixed;
 }
 
-/* 2. Main Glass Card Container */
+/* 2. Main Glass Card Container - Soft Subtle Contrast */
 div[data-testid="stVerticalBlock"] > div:has(div[data-testid="stFileUploader"]) {
-    background: rgba(255, 255, 255, 0.45) !important;
-    border: 1px solid rgba(255, 255, 255, 0.7) !important;
+    background: rgba(255, 255, 255, 0.22) !important;
+    border: 1px solid rgba(255, 255, 255, 0.45) !important;
     border-radius: 20px !important;
-    padding: 2rem !important;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08) !important;
-    backdrop-filter: blur(20px) !important;
+    padding: 2.2rem !important;
+    box-shadow: 0 15px 35px rgba(31, 38, 135, 0.08) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
 }
 
-/* 3. High-Contrast Dark Text */
-.stApp p, .stApp h1, .stApp h2, .stApp h3, .stApp label, .stApp span {
-    color: #1e1b4b !important;
+/* 3. Deep Blue Site Text for High Contrast Readability */
+.stApp, 
+.stApp p, 
+.stApp h1, 
+.stApp h2, 
+.stApp h3, 
+.stApp label, 
+.stApp span, 
+div[data-testid="stMarkdownContainer"] p {
+    color: #0f172a !important;
     font-weight: 500;
 }
 
-/* 4. Fix Black Uploader Box -> Frosted Glass Box */
+/* 4. Soft Frosted Upload Dropzones (Eliminating harsh black/white fills) */
 div[data-testid="stFileUploader"] {
-    background: rgba(255, 255, 255, 0.6) !important;
-    border: 2px dashed rgba(120, 80, 160, 0.35) !important;
-    border-radius: 14px !important;
+    background: rgba(255, 255, 255, 0.28) !important;
+    border: 1.5px dashed rgba(15, 23, 42, 0.25) !important;
+    border-radius: 12px !important;
     padding: 1.2rem !important;
     transition: all 0.3s ease !important;
 }
 
 div[data-testid="stFileUploader"]:hover {
-    background: rgba(255, 255, 255, 0.85) !important;
-    border-color: #8b5cf6 !important;
+    background: rgba(255, 255, 255, 0.4) !important;
+    border-color: #6d28d9 !important;
 }
 
-/* Target internal Streamlit uploader elements & dropzones to strip dark fills */
+/* Remove default dark inner box background from Streamlit */
 div[data-testid="stFileUploader"] section,
-div[data-testid="stFileUploader"] div,
-[data-testid="stFileUploadDropzone"] {
+div[data-testid="stFileUploader"] div {
     background-color: transparent !important;
 }
 
-/* Force text and icons inside uploader to be dark and readable */
-[data-testid="stFileUploadDropzone"] small,
-[data-testid="stFileUploadDropzone"] span,
-[data-testid="stFileUploadDropzone"] div,
-div[data-testid="stFileUploader"] label {
-    color: #1e1b4b !important;
-}
-
-/* 5. Tabs Styling */
+/* 5. Clean Modern Tabs */
 button[data-baseweb="tab"] {
-    color: #475569 !important;
+    color: #334155 !important;
     font-weight: 600 !important;
 }
 
 button[data-baseweb="tab"][aria-selected="true"] {
-    color: #ffffff !important;
-    border-bottom-color: #ffffff !important;
+    color: #0f172a !important;
+    border-bottom-color: #4f46e5 !important;
 }
 
-/* 6. Primary Action Button ("Embed watermark") */
+/* 6. Subtle Accent Primary Button (Deep Blue/Indigo with Pure White Text) */
 .stButton > button {
-    background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 50%) !important;
-    color: #ffffff !important;
-    font-weight: 600 !important;
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%) !important;
     border: none !important;
     border-radius: 10px !important;
-    padding: 0.6rem 1.5rem !important;
-    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.3) !important;
+    padding: 0.65rem 1.6rem !important;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.25) !important;
     transition: all 0.3s ease !important;
+}
+
+/* Guaranteed Pure White Button Text */
+.stButton > button, 
+.stButton > button p, 
+.stButton > button span {
+    color: #ffffff !important;
+    font-weight: 600 !important;
 }
 
 .stButton > button:hover {
     transform: translateY(-2px) !important;
-    box-shadow: 0 8px 25px rgba(124, 58, 237, 0.45) !important;
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4) !important;
 }
 </style>
 """, unsafe_allow_html=True)
