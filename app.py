@@ -58,9 +58,19 @@ div[data-testid="stFileUploader"]:hover {
     border-color: #8b5cf6 !important;
 }
 
-/* Target internal Streamlit uploader elements to strip dark default fills */
-div[data-testid="stFileUploader"] section {
+/* Target internal Streamlit uploader elements & dropzones to strip dark fills */
+div[data-testid="stFileUploader"] section,
+div[data-testid="stFileUploader"] div,
+[data-testid="stFileUploadDropzone"] {
     background-color: transparent !important;
+}
+
+/* Force text and icons inside uploader to be dark and readable */
+[data-testid="stFileUploadDropzone"] small,
+[data-testid="stFileUploadDropzone"] span,
+[data-testid="stFileUploadDropzone"] div,
+div[data-testid="stFileUploader"] label {
+    color: #1e1b4b !important;
 }
 
 /* 5. Tabs Styling */
