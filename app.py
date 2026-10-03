@@ -75,27 +75,26 @@ div[data-testid="stFileUploader"] > section svg {
     fill: #4a044e !important;
 }
 
-/* Elegant Secondary "Upload" Buttons */
+/* SOLID VIOLET "Upload" Buttons */
 div[data-testid="stFileUploader"] > section button {
-    background: rgba(213, 126, 235, 0.15) !important; 
-    color: #701a75 !important; 
-    border: 1px solid rgba(162, 28, 175, 0.3) !important;
+    background: #a21caf !important; /* Solid Violet to match header */
+    color: #ffffff !important; /* Pure white text */
+    border: none !important;
     border-radius: 8px !important;
     padding: 0.5rem 1.2rem !important;
     font-weight: 600 !important;
-    box-shadow: none !important;
+    box-shadow: 0 4px 12px rgba(162, 28, 175, 0.3) !important;
     transition: all 0.3s ease !important;
 }
 div[data-testid="stFileUploader"] > section button:hover {
-    background: linear-gradient(135deg, #d57eeb 0%, #a21caf 100%) !important;
-    color: #ffffff !important;
-    border-color: transparent !important;
-    box-shadow: 0 4px 12px rgba(162, 28, 175, 0.3) !important;
+    background: #86198f !important; /* Slightly darker violet on hover */
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 15px rgba(162, 28, 175, 0.4) !important;
 }
 
 /* 6. PRIMARY ACTION BUTTON ("Embed watermark") */
 div[data-testid="stButton"] button {
-    background: linear-gradient(135deg, #d57eeb 0%, #a21caf 100%) !important; 
+    background: #a21caf !important; /* Solid Violet to match header */
     border: none !important; 
     border-radius: 12px !important;
     padding: 0.8rem 2.5rem !important;
@@ -110,11 +109,12 @@ div[data-testid="stButton"] button span {
     letter-spacing: 0.5px !important;
 }
 div[data-testid="stButton"] button:hover {
+    background: #86198f !important; /* Slightly darker violet on hover */
     transform: translateY(-2px) !important;
     box-shadow: 0 10px 30px rgba(162, 28, 175, 0.5) !important;
 }
 
-/* 7. NEW: CUSTOMIZE THE TOP HEADER BAR */
+/* 7. CUSTOMIZE THE TOP HEADER BAR */
 header[data-testid="stHeader"] {
     background-color: rgba(162, 28, 175, 0.85) !important; /* Deep frosted violet */
     backdrop-filter: blur(12px) !important; 
