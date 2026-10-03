@@ -76,7 +76,7 @@ button[data-baseweb="tab"][aria-selected="true"] {
 
 /* 6. Primary Action Button ("Embed watermark") */
 .stButton > button {
-    background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%) !important;
+    background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 50%) !important;
     color: #ffffff !important;
     font-weight: 600 !important;
     border: none !important;
