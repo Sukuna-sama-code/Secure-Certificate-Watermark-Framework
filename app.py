@@ -19,93 +19,85 @@ st.set_page_config(
 import streamlit as st
 
 
-import streamlit as st
-
 st.markdown("""
 <style>
 /* 1. Base Gradient Background (Near Moon) */
 .stApp {
-    background-image: linear-gradient(135deg, #5ee7df 0%, #b490ca 100%) !important;
+    background: linear-gradient(135deg, #5ee7df 0%, #b490ca 100%) !important;
     background-size: cover;
     background-attachment: fixed;
 }
 
-/* 2. Main Glass Card Container - Soft Subtle Contrast */
+/* 2. Main Glass Card Container - Soft & Elegant */
 div[data-testid="stVerticalBlock"] > div:has(div[data-testid="stFileUploader"]) {
-    background: rgba(255, 255, 255, 0.22) !important;
-    border: 1px solid rgba(255, 255, 255, 0.45) !important;
+    background: rgba(255, 255, 255, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
     border-radius: 20px !important;
-    padding: 2.2rem !important;
-    box-shadow: 0 15px 35px rgba(31, 38, 135, 0.08) !important;
-    backdrop-filter: blur(16px) !important;
-    -webkit-backdrop-filter: blur(16px) !important;
+    padding: 2.5rem !important;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
 }
 
-/* 3. Deep Blue Site Text for High Contrast Readability */
-.stApp, 
-.stApp p, 
-.stApp h1, 
-.stApp h2, 
-.stApp h3, 
-.stApp label, 
-.stApp span, 
-div[data-testid="stMarkdownContainer"] p {
-    color: #0f172a !important;
+/* 3. Global Text - Deep Blue/Indigo for Readability */
+.stApp, .stApp p, .stApp h1, .stApp h2, .stApp h3, .stApp label, .stApp span, div[data-testid="stMarkdownContainer"] p {
+    color: #1e1b4b !important;
     font-weight: 500;
 }
 
-/* 4. Soft Frosted Upload Dropzones (Eliminating harsh black/white fills) */
-div[data-testid="stFileUploader"] {
-    background: rgba(255, 255, 255, 0.28) !important;
-    border: 1.5px dashed rgba(15, 23, 42, 0.25) !important;
+/* 4. FIX UPLOADER: Kill the black boxes & make them glassy */
+[data-testid="stFileUploadDropzone"] {
+    background-color: rgba(255, 255, 255, 0.4) !important;
+    border: 2px dashed rgba(109, 40, 217, 0.3) !important;
     border-radius: 12px !important;
-    padding: 1.2rem !important;
+    padding: 2rem !important;
     transition: all 0.3s ease !important;
 }
-
-div[data-testid="stFileUploader"]:hover {
-    background: rgba(255, 255, 255, 0.4) !important;
+[data-testid="stFileUploadDropzone"]:hover {
+    background-color: rgba(255, 255, 255, 0.6) !important;
     border-color: #6d28d9 !important;
 }
 
-/* Remove default dark inner box background from Streamlit */
-div[data-testid="stFileUploader"] section,
-div[data-testid="stFileUploader"] div {
+/* Force inner Streamlit icons/elements to be transparent (removes the black fill) */
+[data-testid="stFileUploadDropzone"] div,
+[data-testid="stFileUploadDropzone"] section {
     background-color: transparent !important;
+}
+[data-testid="stFileUploadDropzone"] svg {
+    fill: #1e1b4b !important; /* Make the upload cloud icon deep blue */
 }
 
 /* 5. Clean Modern Tabs */
 button[data-baseweb="tab"] {
-    color: #334155 !important;
-    font-weight: 600 !important;
+    color: #475569 !important;
+    background-color: transparent !important;
 }
-
 button[data-baseweb="tab"][aria-selected="true"] {
-    color: #0f172a !important;
-    border-bottom-color: #4f46e5 !important;
+    color: #1e1b4b !important;
+    border-bottom-color: #6d28d9 !important;
+    font-weight: 700 !important;
 }
 
-/* 6. Subtle Accent Primary Button (Deep Blue/Indigo with Pure White Text) */
-.stButton > button {
-    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%) !important;
+/* 6. Primary Action Button - Pop of Color + Pure White Text */
+div[data-testid="stButton"] button {
+    background: linear-gradient(135deg, #6d28d9 0%, #4f46e5 100%) !important; /* Deep Indigo to Violet */
     border: none !important;
-    border-radius: 10px !important;
-    padding: 0.65rem 1.6rem !important;
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.25) !important;
+    border-radius: 12px !important;
+    padding: 0.75rem 2rem !important;
+    box-shadow: 0 4px 15px rgba(109, 40, 217, 0.4) !important;
     transition: all 0.3s ease !important;
 }
-
-/* Guaranteed Pure White Button Text */
-.stButton > button, 
-.stButton > button p, 
-.stButton > button span {
-    color: #ffffff !important;
-    font-weight: 600 !important;
+div[data-testid="stButton"] button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(109, 40, 217, 0.5) !important;
 }
 
-.stButton > button:hover {
-    transform: translateY(-2px) !important;
-    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4) !important;
+/* GUARANTEED Pure White Text inside the button */
+div[data-testid="stButton"] button, 
+div[data-testid="stButton"] button p, 
+div[data-testid="stButton"] button span {
+    color: #ffffff !important;
+    font-weight: 600 !important;
 }
 </style>
 """, unsafe_allow_html=True)
