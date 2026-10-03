@@ -17,6 +17,8 @@ st.set_page_config(
 
 # ---------------------------------------------------------------- styling
 import streamlit as st
+import streamlit as st
+
 st.markdown("""
 <style>
 /* 1. Base Gradient Background (Mean Fruit) */
@@ -26,18 +28,18 @@ st.markdown("""
     background-attachment: fixed;
 }
 
-/* 2. Main Glass Card Container - Ultra Premium */
+/* 2. Main Glass Card Container - Soft & Clean */
 div[data-testid="stVerticalBlock"] > div:has(div[data-testid="stFileUploader"]) {
-    background: rgba(255, 255, 255, 0.55) !important;
-    border: 1px solid rgba(255, 255, 255, 0.9) !important;
-    border-radius: 24px !important;
+    background: rgba(255, 255, 255, 0.5) !important;
+    border: 1px solid rgba(255, 255, 255, 0.8) !important;
+    border-radius: 20px !important;
     padding: 2.5rem !important;
-    box-shadow: 0 16px 40px rgba(162, 28, 175, 0.12) !important; /* Elegant, soft glowing shadow */
-    backdrop-filter: blur(20px) !important;
-    -webkit-backdrop-filter: blur(20px) !important;
+    box-shadow: 0 12px 40px 0 rgba(213, 126, 235, 0.25) !important; /* Soft purple shadow */
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
 }
 
-/* 3. Global Text - Deep Magenta */
+/* 3. Global Text - Deep Eggplant/Magenta for Readability */
 .stApp, .stApp p, .stApp h1, .stApp h2, .stApp h3, .stApp label, .stApp span, div[data-testid="stMarkdownContainer"] p {
     color: #4a044e !important;
     font-weight: 500;
@@ -45,29 +47,25 @@ div[data-testid="stVerticalBlock"] > div:has(div[data-testid="stFileUploader"]) 
 
 /* 4. Clean Modern Tabs */
 button[data-baseweb="tab"] {
-    color: #a21caf !important;
+    color: #86198f !important;
     background-color: transparent !important;
 }
 button[data-baseweb="tab"][aria-selected="true"] {
     color: #4a044e !important;
-    border-bottom-color: #d57eeb !important;
+    border-bottom-color: #d57eeb !important; /* Matches gradient end */
     font-weight: 700 !important;
 }
 
-/* 5. FROSTED UPLOADER ZONES */
+/* 5. OBLITERATE THE STUBBORN BLACK UPLOADER BOXES */
+/* Target the exact container Streamlit uses for the black box */
 div[data-testid="stFileUploader"] > section {
-    background-color: rgba(255, 255, 255, 0.5) !important; 
-    border: 2px dashed rgba(162, 28, 175, 0.35) !important; /* Softer dashed border */
-    border-radius: 16px !important;
+    background-color: rgba(255, 255, 255, 0.45) !important; /* Soft frosted white */
+    border: 2px dashed #a21caf !important; /* Deep fuchsia dashed border */
+    border-radius: 15px !important;
     padding: 2rem !important;
-    transition: all 0.3s ease !important;
-}
-div[data-testid="stFileUploader"] > section:hover {
-    background-color: rgba(255, 255, 255, 0.8) !important;
-    border-color: #a21caf !important;
 }
 
-/* Force text and icons to be Deep Magenta */
+/* Force all text and icons inside the dropzone to be Deep Magenta */
 div[data-testid="stFileUploader"] > section,
 div[data-testid="stFileUploader"] > section *,
 div[data-testid="stFileUploader"] > section svg {
@@ -75,34 +73,27 @@ div[data-testid="stFileUploader"] > section svg {
     fill: #4a044e !important;
 }
 
-/* 🌟 THE FIX: Elegant Secondary "Upload" Buttons */
+/* Style the internal "Browse files" / "Upload" button */
 div[data-testid="stFileUploader"] > section button {
-    background: rgba(213, 126, 235, 0.15) !important; /* Soft, tinted glass */
-    color: #701a75 !important; /* Deep purple text */
-    border: 1px solid rgba(162, 28, 175, 0.3) !important;
+    background: linear-gradient(135deg, #d57eeb 0%, #a21caf 100%) !important; /* Mean Fruit gradient */
+    color: #ffffff !important; /* Pure white text */
+    border: none !important;
     border-radius: 8px !important;
     padding: 0.5rem 1.2rem !important;
     font-weight: 600 !important;
-    box-shadow: none !important;
-    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 10px rgba(162, 28, 175, 0.3) !important;
 }
-/* Turns solid vibrant purple only when the user hovers over it */
-div[data-testid="stFileUploader"] > section button:hover {
-    background: linear-gradient(135deg, #d57eeb 0%, #a21caf 100%) !important;
-    color: #ffffff !important;
-    border-color: transparent !important;
-    box-shadow: 0 4px 12px rgba(162, 28, 175, 0.3) !important;
-}
-
-/* 6. PRIMARY ACTION BUTTON ("Embed watermark") - The undisputed hero */
+/* 6. STYLE THE MAIN PRIMARY BUTTONS ("Embed watermark") */
 div[data-testid="stButton"] button {
     background: linear-gradient(135deg, #d57eeb 0%, #a21caf 100%) !important; 
     border: none !important; 
     border-radius: 12px !important;
-    padding: 0.8rem 2.5rem !important;
-    box-shadow: 0 8px 25px rgba(162, 28, 175, 0.35) !important;
+    padding: 0.75rem 2.5rem !important;
+    box-shadow: 0 6px 20px rgba(162, 28, 175, 0.4) !important;
     transition: all 0.3s ease !important;
 }
+
+/* Ensure the text inside the main button is purely white */
 div[data-testid="stButton"] button, 
 div[data-testid="stButton"] button p, 
 div[data-testid="stButton"] button span {
@@ -110,9 +101,10 @@ div[data-testid="stButton"] button span {
     font-weight: 600 !important;
     letter-spacing: 0.5px !important;
 }
+
 div[data-testid="stButton"] button:hover {
     transform: translateY(-2px) !important;
-    box-shadow: 0 10px 30px rgba(162, 28, 175, 0.5) !important;
+    box-shadow: 0 8px 25px rgba(162, 28, 175, 0.6) !important;
 }
 </style>
 """, unsafe_allow_html=True)
