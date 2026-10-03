@@ -54,42 +54,37 @@ button[data-baseweb="tab"][aria-selected="true"] {
     font-weight: 700 !important;
 }
 
-/* 5. FIX THE STUBBORN BLACK UPLOADER BOXES */
-[data-testid="stFileUploadDropzone"] {
-    background-color: rgba(255, 255, 255, 0.65) !important; 
-    border: 2px dashed #d57eeb !important; /* Pastel purple dashed border */
-    border-radius: 12px !important;
+/* 5. OBLITERATE THE STUBBORN BLACK UPLOADER BOXES */
+/* Target the exact container Streamlit uses for the black box */
+div[data-testid="stFileUploader"] > section {
+    background-color: rgba(255, 255, 255, 0.45) !important; /* Soft frosted white */
+    border: 2px dashed #a21caf !important; /* Deep fuchsia dashed border */
+    border-radius: 15px !important;
     padding: 2rem !important;
-    transition: all 0.3s ease !important;
-}
-[data-testid="stFileUploadDropzone"]:hover {
-    background-color: rgba(255, 255, 255, 0.9) !important;
-    border-color: #c026d3 !important;
 }
 
-/* Force inner text and icons to be dark purple (fixes black boxes) */
-[data-testid="stFileUploadDropzone"] *, 
-[data-testid="stFileUploadDropzone"] div, 
-[data-testid="stFileUploadDropzone"] span, 
-[data-testid="stFileUploadDropzone"] small {
-    background-color: transparent !important;
+/* Force all text and icons inside the dropzone to be Deep Magenta */
+div[data-testid="stFileUploader"] > section,
+div[data-testid="stFileUploader"] > section *,
+div[data-testid="stFileUploader"] > section svg {
     color: #4a044e !important; 
-}
-[data-testid="stFileUploadDropzone"] svg {
-    fill: #4a044e !important; 
+    fill: #4a044e !important;
 }
 
-/* Style the internal "Browse files" button */
-[data-testid="stFileUploadDropzone"] button {
-    background-color: #ffffff !important;
-    border: 1px solid #d57eeb !important;
-    color: #4a044e !important;
+/* Style the internal "Browse files" / "Upload" button */
+div[data-testid="stFileUploader"] > section button {
+    background: linear-gradient(135deg, #d57eeb 0%, #a21caf 100%) !important; /* Mean Fruit gradient */
+    color: #ffffff !important; /* Pure white text */
+    border: none !important;
     border-radius: 8px !important;
+    padding: 0.5rem 1.2rem !important;
+    font-weight: 600 !important;
+    box-shadow: 0 4px 10px rgba(162, 28, 175, 0.3) !important;
 }
 
-/* 6. STYLE THE MAIN PRIMARY BUTTONS (Vibrant Purple + Pure White Text) */
+/* 6. STYLE THE MAIN PRIMARY BUTTONS ("Embed watermark") */
 div[data-testid="stButton"] button {
-    background: linear-gradient(135deg, #d57eeb 0%, #a21caf 100%) !important; /* Pastel purple to rich fuchsia */
+    background: linear-gradient(135deg, #d57eeb 0%, #a21caf 100%) !important; 
     border: none !important; 
     border-radius: 12px !important;
     padding: 0.75rem 2.5rem !important;
@@ -106,7 +101,6 @@ div[data-testid="stButton"] button span {
     letter-spacing: 0.5px !important;
 }
 
-/* Hover effect: Glows brighter */
 div[data-testid="stButton"] button:hover {
     transform: translateY(-2px) !important;
     box-shadow: 0 8px 25px rgba(162, 28, 175, 0.6) !important;
