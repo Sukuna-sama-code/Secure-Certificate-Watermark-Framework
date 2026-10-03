@@ -18,7 +18,6 @@ st.set_page_config(
 # ---------------------------------------------------------------- styling
 import streamlit as st
 
-
 st.markdown("""
 <style>
 /* 1. Base Gradient Background (Near Moon) */
@@ -45,7 +44,29 @@ div[data-testid="stVerticalBlock"] > div:has(div[data-testid="stFileUploader"]) 
     font-weight: 500;
 }
 
-/* 4. Clean Modern Tabs */
+/* 4. FIX UPLOADER: Kill the black boxes & make them glassy */
+[data-testid="stFileUploadDropzone"] {
+    background-color: rgba(255, 255, 255, 0.4) !important;
+    border: 2px dashed rgba(109, 40, 217, 0.3) !important;
+    border-radius: 12px !important;
+    padding: 2rem !important;
+    transition: all 0.3s ease !important;
+}
+[data-testid="stFileUploadDropzone"]:hover {
+    background-color: rgba(255, 255, 255, 0.6) !important;
+    border-color: #6d28d9 !important;
+}
+
+/* Force inner Streamlit icons/elements to be transparent (removes the black fill) */
+[data-testid="stFileUploadDropzone"] div,
+[data-testid="stFileUploadDropzone"] section {
+    background-color: transparent !important;
+}
+[data-testid="stFileUploadDropzone"] svg {
+    fill: #1e1b4b !important; /* Make the upload cloud icon deep blue */
+}
+
+/* 5. Clean Modern Tabs */
 button[data-baseweb="tab"] {
     color: #475569 !important;
     background-color: transparent !important;
@@ -56,61 +77,26 @@ button[data-baseweb="tab"][aria-selected="true"] {
     font-weight: 700 !important;
 }
 
-/* 5. FIX THE STUBBORN BLACK UPLOADER BOXES */
-[data-testid="stFileUploadDropzone"] {
-    background-color: rgba(255, 255, 255, 0.1) !important; 
-    border: 2px dashed #ffffff !important; 
-    border-radius: 12px !important;
-    padding: 2rem !important;
-}
-
-/* Force all text, subtext, and backgrounds inside the dropzone to be transparent/white */
-[data-testid="stFileUploadDropzone"] *, 
-[data-testid="stFileUploadDropzone"] div, 
-[data-testid="stFileUploadDropzone"] span, 
-[data-testid="stFileUploadDropzone"] small {
-    background-color: transparent !important;
-    color: #ffffff !important; 
-}
-
-/* Make the upload cloud icon white */
-[data-testid="stFileUploadDropzone"] svg {
-    fill: #ffffff !important; 
-}
-
-/* Style the internal "Browse files" button */
-[data-testid="stFileUploadDropzone"] button {
-    background-color: rgba(255, 255, 255, 0.2) !important;
-    border: 1px solid #ffffff !important;
-    color: #ffffff !important;
-    border-radius: 8px !important;
-}
-
-/* 6. STYLE THE MAIN PRIMARY BUTTONS (White text & White box) */
+/* 6. Primary Action Button - Pop of Color + Pure White Text */
 div[data-testid="stButton"] button {
-    background: rgba(255, 255, 255, 0.15) !important; 
-    border: 2px solid #ffffff !important; 
+    background: linear-gradient(135deg, #6d28d9 0%, #4f46e5 100%) !important; /* Deep Indigo to Violet */
+    border: none !important;
     border-radius: 12px !important;
     padding: 0.75rem 2rem !important;
+    box-shadow: 0 4px 15px rgba(109, 40, 217, 0.4) !important;
     transition: all 0.3s ease !important;
 }
+div[data-testid="stButton"] button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(109, 40, 217, 0.5) !important;
+}
 
-/* Ensure the text inside the main button is purely white */
+/* GUARANTEED Pure White Text inside the button */
 div[data-testid="stButton"] button, 
 div[data-testid="stButton"] button p, 
 div[data-testid="stButton"] button span {
     color: #ffffff !important;
     font-weight: 600 !important;
-}
-
-/* Hover effect: Turns solid white with deep blue text when hovered */
-div[data-testid="stButton"] button:hover {
-    background: #ffffff !important;
-    color: #1e1b4b !important;
-}
-div[data-testid="stButton"] button:hover p,
-div[data-testid="stButton"] button:hover span {
-    color: #1e1b4b !important;
 }
 </style>
 """, unsafe_allow_html=True)
