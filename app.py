@@ -70,12 +70,13 @@ button[data-baseweb="tab"] {
 }
 
 button[data-baseweb="tab"][aria-selected="true"] {
-    color: #6d28d9 !important;
-    border-bottom-color: #6d28d9 !important;
+    color: #ffffff !important;
+    border-bottom-color: #ffffff !important;
 }
 
 /* 6. Primary Action Button ("Embed watermark") */
 .stButton > button {
+    background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 50%) !important;
     color: #ffffff !important;
     font-weight: 600 !important;
     border: none !important;
