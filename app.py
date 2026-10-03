@@ -19,82 +19,64 @@ st.set_page_config(
 import streamlit as st
 
 
-st.markdown(
-    """
-    <style>
-    /* Deep Rich Tech Background with Subtle Glow Effect */
-    .stApp {
-    background-image: linear-gradient(to right, #ff8177 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
+st.markdown("""
+<style>
+/* Near Moon Gradient Background */
+.stApp {
+    background-image: linear-gradient(135deg, #5ee7df 0%, #b490ca 100%);
     background-size: cover;
     background-attachment: fixed;
-    color: #ffffff;
+    color: #1e293b;
 }
-    /* Force high-contrast text */
-    .stApp p, .stApp h1, .stApp h2, .stApp h3, .stApp label, .stApp span {
-        color: #f1f5f9 !important;
-    }
 
-    /* Glassmorphic Container Cards for Uploader & Sections */
-    div[data-testid="stVerticalBlock"] > div:has(div[data-testid="stFileUploader"]) {
-    /* Pure dark frosted overlay gives high contrast against bright red/pink */
-    background: rgba(18, 18, 24, 0.65) !important;
-    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+/* Force high-contrast dark text for readability on light/bright gradients */
+.stApp p, .stApp h1, .stApp h2, .stApp h3, .stApp label, .stApp span {
+    color: #0f172a !important;
+}
+
+/* Glassmorphic Container Cards with crisp contrast */
+div[data-testid="stVerticalBlock"] > div:has(div[data-testid="stFileUploader"]) {
+    background: rgba(255, 255, 255, 0.75) !important;
+    border: 1px solid rgba(255, 255, 255, 0.9) !important;
     border-radius: 16px !important;
     padding: 1.5rem !important;
-    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4) !important;
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.15) !important;
     backdrop-filter: blur(16px) !important;
 }
 
-    /* File Uploader Customization */
-    div[data-testid="stFileUploader"] {
-    /* Slightly lighter dark box inside the container card */
-    background-color: rgba(30, 30, 40, 0.7) !important;
-    border: 2px dashed rgba(255, 129, 119, 0.6) !important; /* Coral pink border matching gradient */
+/* File Uploader Dropzone */
+div[data-testid="stFileUploader"] {
+    background-color: rgba(240, 249, 255, 0.8) !important;
+    border: 2px dashed rgba(94, 231, 223, 0.8) !important;
     border-radius: 12px !important;
     padding: 1rem !important;
     transition: all 0.3s ease !important;
 }
 
-    div[data-testid="stFileUploader"]:hover {
-    border-color: #ff8177 !important;
-    background-color: rgba(45, 45, 60, 0.85) !important;
-    box-shadow: 0 0 15px rgba(255, 129, 119, 0.3) !important;
-}
-    /* Tabs Styling */
-    button[data-baseweb="tab"] {
-        color: #94a3b8 !important;
-        font-weight: 600;
-    }
-    button[data-baseweb="tab"] {
-    color: rgba(255, 255, 255, 0.6) !important;
-    font-weight: 600;
+div[data-testid="stFileUploader"]:hover {
+    border-color: #b490ca !important;
+    background-color: rgba(255, 255, 255, 0.95) !important;
 }
 
-    button[data-baseweb="tab"][aria-selected="true"] {
-    color: #ffffff !important;
-    border-bottom-color: #ff8177 !important; /* Coral pink active indicator line */
-}
-    /* Modern Gradient Primary Action Button */
-    /* Modern Gradient Primary Action Button */
-    .stButton > button {
-    background: linear-gradient(135deg, #ff8177 0%, #cf556c 100%);
+/* Modern Gradient Primary Action Button */
+.stButton > button {
+    background: linear-gradient(135deg, #5ee7df 0%, #b490ca 100%);
     color: #ffffff !important;
     border: none;
     border-radius: 10px;
     font-weight: 600;
     padding: 0.6rem 1.2rem;
-    box-shadow: 0 4px 20px rgba(255, 129, 119, 0.4);
+    box-shadow: 0 4px 20px rgba(180, 144, 202, 0.4);
     transition: all 0.3s ease;
 }
 
-    .stButton > button:hover {
-    background: linear-gradient(135deg, #ff8c7f 0%, #b12a5b 100%);
-    box-shadow: 0 6px 24px rgba(255, 129, 119, 0.6);
+.stButton > button:hover {
+    background: linear-gradient(135deg, #4bc9c2 0%, #a27eb8 100%);
+    box-shadow: 0 6px 24px rgba(180, 144, 202, 0.6);
     transform: translateY(-1px);
 }
-    </style>
-    """,
-    unsafe_allow_html=True,
+</style>
+""", unsafe_allow_html=True
 )
 # ---------------------------------------------------------------- keys
 priv = keys.load_private_key()
