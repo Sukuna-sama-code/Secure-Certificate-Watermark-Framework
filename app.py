@@ -19,21 +19,13 @@ st.set_page_config(
 import streamlit as st
 
 
-import streamlit as st
-
 st.markdown("""
 <style>
-/* Force Deep Blue text across the entire site */
-.stApp, 
-.stApp p, 
-.stApp h1, 
-.stApp h2, 
-.stApp h3, 
-.stApp label, 
-.stApp span, 
-div[data-testid="stMarkdownContainer"] p {
-    color: #0f172a !important;
-    font-weight: 500;
+/* 1. Near Moon Gradient Background */
+.stApp {
+    background-image: linear-gradient(135deg, #5ee7df 0%, #b490ca 100%);
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 /* 2. Main Glass Card Container */
@@ -83,27 +75,20 @@ button[data-baseweb="tab"][aria-selected="true"] {
 }
 
 /* 6. Primary Action Button ("Embed watermark") */
-/* Primary Action Button ("Embed watermark" / "Verify certificate") */
 .stButton > button {
-    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%) !important;
+    background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%) !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
     border: none !important;
     border-radius: 10px !important;
     padding: 0.6rem 1.5rem !important;
-    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.35) !important;
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.3) !important;
     transition: all 0.3s ease !important;
-}
-
-/* Force pure white text specifically on button text and internal elements */
-.stButton > button, 
-.stButton > button p, 
-.stButton > button span {
-    color: #ffffff !important;
-    font-weight: 600 !important;
 }
 
 .stButton > button:hover {
     transform: translateY(-2px) !important;
-    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.5) !important;
+    box-shadow: 0 8px 25px rgba(124, 58, 237, 0.45) !important;
 }
 </style>
 """, unsafe_allow_html=True)
